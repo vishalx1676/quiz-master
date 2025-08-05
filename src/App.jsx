@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import { Main } from "./components/Main";
 import Category from "./components/Category";
@@ -14,16 +20,16 @@ import Contactus from "./components/Contactus";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <AppLayout />
     </Router>
   );
 }
 
-// 👇 Wrapper to control layout
 const AppLayout = () => {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/" || location.pathname === "/register";
+  const hideNavbar =
+    location.pathname === "/" || location.pathname === "/register";
 
   return (
     <>
@@ -32,13 +38,12 @@ const AppLayout = () => {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/quiz/:title" element={<Singlequiz />} />
-        <Route path='/allquiz' element={<Category/>}/>
+        <Route path="/allquiz" element={<Category />} />
         <Route path="/home" element={<Home />} />
         <Route path="/contactus" element={<Contactus />} />
-
-        {/* Catch-all for invalid routes */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      {!hideNavbar && <Footer />}
     </>
   );
 };
