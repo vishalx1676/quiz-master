@@ -15,7 +15,7 @@ const Home = () => {
  <Main/>
  <Category/>
     <Features/>
-    <Footer/>
+    {/* <Footer/> */}
 
     </>
   )

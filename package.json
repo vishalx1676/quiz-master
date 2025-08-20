@@ -1,7 +1,6 @@
 {
   "name": "quiz-webiste",
   "private": true,
-  "homepage": "https://vishalx05.github.io/quiz-master",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
